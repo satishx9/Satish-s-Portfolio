@@ -12,6 +12,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "resend": "^6.8.0"
+    "nodemailer": "^8.0.10"
   }
 }

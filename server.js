@@ -147,9 +147,9 @@ const server = createServer(async (req, res) => {
 function startServer(port) {
   server.listen(port, '0.0.0.0', () => {
     console.log(`Open http://localhost:${port} or http://127.0.0.1:${port}`);
-    if (!process.env.RESEND_API_KEY) {
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
       console.warn(
-        'RESEND_API_KEY is not set. Add it to a .env file in this folder for the contact form to send email.'
+        'GMAIL_USER or GMAIL_APP_PASSWORD is not set. Add them to a .env file for the contact form to send email.'
       );
     }
   }).on('error', (err) => {
