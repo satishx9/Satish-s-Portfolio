@@ -15,13 +15,13 @@
 <body>
     <div class="top">
         <div class="nav">
-            <div class="hamburger" id="hamburger">
-                <img src="icons/option.svg" width="30px" srcset="">
-            </div>
             <nav class="upper">
+                <div class="hamburger" id="hamburger">
+                    <img src="icons/option.svg" width="30px" alt="Toggle Menu">
+                </div>
                 <div class="profile">
                     <div class="img">
-                        <img src="icons/profile.svg" alt="" srcset="">
+                        <img src="icons/profile.svg" alt="Profile Avatar">
                     </div>
                     <div>
                         <span>thadelasatish@gmail.com</span>
@@ -29,10 +29,13 @@
                 </div>
                 <ul class="ul">
                     <div class="close">
-                        <img src="icons/close.svg" srcset="">
+                        <img src="icons/close.svg" alt="Close Menu">
                     </div>
                     <a href="index.html">
                         <li class="bar">Home</li>
+                    </a>
+                    <a href="#experience">
+                        <li class="bar">Experience</li>
                     </a>
                     <a href="#ed">
                         <li class="bar">Education</li>
@@ -46,58 +49,98 @@
                     <a href="#contact">
                         <li class="bar">Contact</li>
                     </a>
-                </ul>
-                <div class="button">
-                    <a href="documents/satish_DataScience.pdf" download>
-                        <button class="download">
+                    <li class="nav-mobile-resume">
+                        <a href="documents/satish_DataScience.pdf" download class="mobile-resume-btn">
                             Resume
-                            <img src="icons/download.svg" alt="" srcset="">
+                            <img src="icons/download.svg" alt="Download Icon">
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-right">
+                    <div class="button">
+                        <a href="documents/satish_DataScience.pdf" download>
+                            <button class="download">
+                                Resume
+                                <img src="icons/download.svg" alt="Download Icon">
+                            </button>
+                        </a>
+                    </div>
+                    <div class="theme-toggle">
+                        <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
+                            <span class="theme-icon">🌙</span>
                         </button>
-                    </a>
-                </div>
-                <div class="theme-toggle">
-                    <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
-                        <span class="theme-icon">🌙</span>
-                    </button>
+                    </div>
                 </div>
             </nav>
         </div>
     </div>
-    <main>
+    <main id="home">
         <div class="photo">
-            <img src="icons/photo.jpeg" width="
-            200px" alt="" srcset="">
+            <img src="icons/photo.jpeg" width="200px" alt="Satish Thadela Profile Photo">
         </div>
         <div class="right">
             <h1>
-               Hi, I’m Satish — AI & Web Developer
+                Hi, I’m Satish
+                <!-- &mdash;<br>AI & <span class="accent-text">Web Developer</span> -->
             </h1>
-            <p>I build intelligent web applications by combining data science and modern web technologies.
-               Passionate about solving real-world problems using Machine Learning and clean, scalable code.
+            <div class="title-line"></div>
+            <p>AI/ML enthusiast and full stack developer focused on building scalable web applications, intelligent
+                systems, and modern digital solutions with clean, efficient code.
             </p>
             <div class="btn">
                 <a href="#contact">
                     <button>
                         Hire me!
-                        <img src="icons/arrow.svg" alt="" srcset="">
+                        <img src="icons/arrow.svg" alt="Arrow Icon">
                     </button>
                 </a>
                 <div class="list">
                     <ul>
-                        <a href="https://github.com/satishx9">
-                            <li><img src="icons/github.svg" alt="github" srcset="" width="40px"></li>
+                        <a href="https://github.com/satishx9" target="_blank" rel="noopener noreferrer">
+                            <li><img src="icons/github.svg" alt="GitHub Profile" width="40px"></li>
                         </a>
-                        <a href="https://www.linkedin.com/in/satishthadela">
-                            <li><img src="icons/linkdin.svg" alt="" srcset=""></li>
+                        <a href="https://www.linkedin.com/in/satishthadela" target="_blank" rel="noopener noreferrer">
+                            <li><img src="icons/linkdin.svg" alt="LinkedIn Profile"></li>
                         </a>
                     </ul>
                 </div>
             </div>
         </div>
     </main>
-    <div class="Education" id="ed">
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
         <div class="heading">
-            <span><img src="icons/education.svg" width="50px" alt=""></span>
+            <span><img src="icons/experience.svg" width="50px" alt="Experience Icon"></span>
+            <span>
+                <h2>My Experience</h2>
+            </span>
+        </div>
+        <div class="sec1">
+            <div class="card-header">
+                <div class="header-left">
+                    <h2 class="date">May 2026 – June 2026</h2>
+                    <h2 class="role">AI/ML Intern</h2>
+                    <p class="company-loc">Alonzo AI &bull; Hyderabad, India</p>
+                </div>
+                <div class="header-right">
+                    <img src="icons/alonzo.png" class="company-logo" alt="Alonzo AI Logo">
+                </div>
+            </div>
+            <ul class="exp-points">
+                <li>Working on <strong>EduSim</strong>, an AI-powered educational platform featuring intelligent
+                    tutoring and interactive simulations for School students.</li>
+                <li>Contributing to frontend, backend, AI model integration, and RAG-based educational retrieval
+                    systems.</li>
+                <li>Tech Stack: React, FastAPI, Python, SQLite/PostgreSQL, FAISS (Vector DB), Sentence Transformers,
+                    OpenRouter API (Gemini)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="Education" id="ed">
+        <div class="heading">
+            <span><img src="icons/education.svg" width="50px" alt="Education Icon"></span>
             <span>
                 <h2>My Education</h2>
             </span>
@@ -120,56 +163,56 @@
             <p>Tagore Home New Era Institute</p>
             <i>CGPA: 9.5</i>
         </div>
-    </div>
-    <div class="skill" id="skill">
+    </section>
+
+    <section class="skill" id="skill">
         <div class="info">
             <div class="skillhead">
-                <h1 style="text-align: justify;">My Skills</h1>
+                <h1>My Skills</h1>
             </div>
             <div class="languages">
                 <div class="lang">
-                    <img src="icons/ml.svg" alt="" srcset="">
-                    <p style="text-transform: uppercase;">Machine Learning</p>
+                    <img src="icons/ml.svg" alt="Machine Learning Skill">
+                    <p>Machine Learning</p>
                 </div>
                 <div class="lang">
-                    <!-- <img src="https://gerold.themejunction.net/wp-content/uploads/2024/05/js.png" alt="" srcset=""> -->
-                    <img src="icons/js.svg" alt="" srcset="">
-                    <p style="text-transform: uppercase;">javaScript</p>
+                    <img src="icons/js.svg" alt="JavaScript Skill">
+                    <p>javaScript</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/html.svg" alt="">
-                    <p style="text-transform: uppercase;">html</p>
+                    <img src="icons/html.svg" alt="HTML5 Skill">
+                    <p>html</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/css.svg" alt="">
-                    <p style="text-transform: uppercase;">css</p>
+                    <img src="icons/css.svg" alt="CSS3 Skill">
+                    <p>css</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/python.svg" alt="">
-                    <p style="text-transform: uppercase;">python</p>
+                    <img src="icons/python.svg" alt="Python Skill">
+                    <p>python</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/pandas.svg" alt="">
-                    <p style="text-transform: uppercase;">pandas</p>
+                    <img src="icons/pandas.svg" alt="Pandas Skill">
+                    <p>pandas</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/numpy.svg" alt="">
-                    <p style="text-transform: uppercase;">numpy</p>
+                    <img src="icons/numpy.svg" alt="NumPy Skill">
+                    <p>numpy</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/mysql.svg" alt="">
-                    <p style="text-transform: uppercase;">mysql</p>
+                    <img src="icons/mysql.svg" alt="MySQL Skill">
+                    <p>mysql</p>
                 </div>
                 <div class="lang">
-                    <img src="icons/sqlite.svg" alt="">
-                    <p style="text-transform: uppercase;">sqlite</p>
+                    <img src="icons/sqlite.svg" alt="SQLite Skill">
+                    <p>sqlite</p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="projects" id="projects">
+    </section>
+
+    <section class="projects" id="projects">
         <div class="heading">
-            <!-- <span><img src="icons/education.svg" width="50px" alt=""></span> -->
             <span>
                 <h2>My Projects</h2>
             </span>
@@ -177,11 +220,13 @@
         <div class="projectgrid">
             <div class="projectcard">
                 <div class="projectimage">
-                    <img src="icons/bc.png" alt="Project 1">
+                    <img src="icons/bc.png" alt="Breast Cancer Classification Project Screenshot">
                 </div>
                 <div class="projectinfo">
                     <h3>🩺 Breast Cancer Classification using Machine Learning</h3>
-                    <p>Developed a machine learning system to classify breast cancer tumors as benign or malignant using diagnostic features. The project covers data preprocessing, model training, classification, and evaluation.</p>
+                    <p>Developed a machine learning system to classify breast cancer tumors as benign or malignant using
+                        diagnostic features. The project covers data preprocessing, model training, classification, and
+                        evaluation.</p>
                     <div class="projecttech">
                         <span class="tech">HTML</span>
                         <span class="tech">CSS</span>
@@ -190,36 +235,39 @@
                         <span class="tech">Machine Learning</span>
                     </div>
                     <div class="projectlinks">
-                        <!-- <a href="#" class="projectlink">Live Demo</a> -->
-                        <a href="https://github.com/satishx9/Breast-Cancer-classification-in-Machine-Learning" class="projectlink" target="_blank">GitHub</a>
+                        <a href="https://github.com/satishx9/Breast-Cancer-classification-in-Machine-Learning"
+                            class="projectlink" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="projectcard">
                 <div class="projectimage">
-                    <img src="icons/profile.png" alt="Project 2">
+                    <img src="icons/profile.png" alt="Portfolio Website Project Screenshot">
                 </div>
                 <div class="projectinfo">
                     <h3>Portfolio Website</h3>
-                    <p>A modern portfolio website showcasing my work and skills. Built with clean design principles and smooth animations.</p>
+                    <p>A modern portfolio website showcasing my work and skills. Built with clean design principles and
+                        smooth animations.</p>
                     <div class="projecttech">
                         <span class="tech">HTML</span>
                         <span class="tech">CSS</span>
                         <span class="tech">JavaScript</span>
                     </div>
                     <div class="projectlinks">
-                        <!-- <a href="#" class="projectlink">Live Demo</a> -->
-                        <a href="https://github.com/satishx9/Portfolio-Website" class="projectlink" target="_blank">GitHub</a>
+                        <a href="https://github.com/satishx9/Portfolio-Website" class="projectlink" target="_blank"
+                            rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="projectcard">
                 <div class="projectimage">
-                    <img src="icons/heart.png" alt="Project 3">
+                    <img src="icons/heart.png" alt="HeartGuard AI Project Screenshot">
                 </div>
                 <div class="projectinfo">
                     <h3>🫀 HeartGuard AI: Heart Disease Prediction System</h3>
-                    <p>A machine learning-based web application that predicts heart disease risk using clinical data. Built with FastAPI and Streamlit, it provides real-time predictions, interactive visualizations, and an intuitive dashboard for analyzing patient health metrics efficiently.</p>
+                    <p>A machine learning-based web application that predicts heart disease risk using clinical data.
+                        Built with FastAPI and Streamlit, it provides real-time predictions, interactive visualizations,
+                        and an intuitive dashboard for analyzing patient health metrics efficiently.</p>
                     <div class="projecttech">
                         <span class="tech">HTML</span>
                         <span class="tech">CSS</span>
@@ -228,33 +276,25 @@
                         <span class="tech">Machine Learning</span>
                     </div>
                     <div class="projectlinks">
-                        <!-- <a href="#" class="projectlink">Live Demo</a> -->
-                        <a href="https://github.com/satishx9/Heart-Disease-Prediction-using-Machine-Learning-" class="projectlink" target="_blank">GitHub</a>
+                        <a href="https://github.com/satishx9/Heart-Disease-Prediction-using-Machine-Learning-"
+                            class="projectlink" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <form id="contactForm">
-        <div class="contact" id="contact">
-            <div class="leftcont">
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="leftcont">
+            <form id="contactForm">
                 <h1>Let’s work together!</h1>
                 <div class="input1">
                     <input type="text" id="first-name" placeholder="First Name" required>
-                    <span> <input type="text" id="last-name" placeholder="Last Name" required>
-                    </span>
+                    <span><input type="text" id="last-name" placeholder="Last Name" required></span>
                 </div>
                 <div class="input1">
                     <input type="email" id="email" placeholder="Email address" required>
                     <span><input type="text" id="phone" placeholder="Phone number"></span>
-                </div>
-                <div class="option">
-                    <select name="service" id="service" required>
-                        <option value="" style="color: black;">Select a service</option>
-                        <option value="Web Developer" style="color: black;">Web Developer</option>
-                        <option value="Data Analyst" style="color: black;">Data Analyst</option>
-                        <option value="AI Engineer" style="color: black;">AI Engineer</option>
-                    </select>
                 </div>
                 <div class="message">
                     <textarea name="message" id="message" placeholder="Message" required></textarea>
@@ -264,36 +304,37 @@
                         submit
                     </button>
                 </div>
-            </div>
-            <p id="successMessage" style="display: none; color: green; margin-top: 10px;">
+            </form>
+            <p id="successMessage" class="success-message">
                 Thank you! Your message has been sent.
             </p>
-    </form>
-    <div class="rightcont">
-        <ul class="rightul">
-            <li class="contact-list">
-                <img src="icons/phone.svg" width="30px">
-                <p>Phone</p>
-                <p>+91 9676226973</p>
-            </li>
-            <li class="contact-list">
-                <img src="icons/email.svg" width="30px">
-                <p>Email</p>
-                <a href="mailto:thadelasatish@gmail.com">thadelasatish@gmail.com</a>
-            </li>
-            <li class="contact-list">
-                <img src="icons/location.svg" width="30px">
-                <a
-                    href="https://www.google.com/maps/@17.4599223,78.5020061,16z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D">
-                    <p>Hyderabad,Telangana 500015</p>
-                    <p>INDIA</p>
-                </a>
-            </li>
-        </ul>
-    </div>
-    </div>
+        </div>
+        <div class="rightcont">
+            <ul class="rightul">
+                <li class="contact-list">
+                    <img src="icons/phone.svg" width="30px" alt="Phone Icon">
+                    <p>Phone</p>
+                    <p>+91 9676226973</p>
+                </li>
+                <li class="contact-list">
+                    <img src="icons/email.svg" width="30px" alt="Email Icon">
+                    <p>Email</p>
+                    <a href="mailto:thadelasatish@gmail.com">thadelasatish@gmail.com</a>
+                </li>
+                <li class="contact-list">
+                    <img src="icons/location.svg" width="30px" alt="Location Icon">
+                    <a href="https://www.google.com/maps/@17.4599223,78.5020061,16z?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank" rel="noopener noreferrer">
+                        <p>Hyderabad,Telangana 500015</p>
+                        <p>INDIA</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
     <div class="slidup">
-        <img src="icons/slidup.svg" width="45px">
+        <img src="icons/slidup.svg" width="45px" alt="Scroll to Top">
     </div>
 </body>
 

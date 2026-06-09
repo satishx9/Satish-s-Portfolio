@@ -1,5 +1,6 @@
 import { createServer } from 'http';
-import { readFileSync, existsSync, statSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
+import { readFile, stat } from 'fs/promises';
 import { join, extname, resolve, relative } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -119,26 +120,28 @@ const server = createServer(async (req, res) => {
   }
 
   let file = safePath(urlPath === '/' ? '/index.html' : urlPath);
-  if (!file || !existsSync(file)) {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Not found');
-    return;
-  }
-  try {
-    if (!statSync(file).isFile()) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('Not found');
-      return;
-    }
-  } catch {
+  if (!file) {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
     return;
   }
 
-  const type = MIME[extname(file).toLowerCase()] || 'application/octet-stream';
-  res.writeHead(200, { 'Content-Type': type });
-  res.end(readFileSync(file));
+  try {
+    const fileStat = await stat(file);
+    if (!fileStat.isFile()) {
+      res.writeHead(404, { 'Content-Type': 'text/plain' });
+      res.end('Not found');
+      return;
+    }
+
+    const type = MIME[extname(file).toLowerCase()] || 'application/octet-stream';
+    const content = await readFile(file);
+    res.writeHead(200, { 'Content-Type': type });
+    res.end(content);
+  } catch (err) {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Not found');
+  }
 });
 
 function startServer(port) {

@@ -34,7 +34,7 @@ export default async function handler(req, res) {
 
   // Validate required fields
   if (!first_name || !last_name || !email || !message) {
-    return res.status(400).json({ 
+    return res.status(400).json({
       error: 'Missing required fields',
       message: 'First name, last name, email, and message are required'
     });
@@ -42,9 +42,11 @@ export default async function handler(req, res) {
 
   try {
     // 1️⃣ Email TO YOU (admin)
+    // NOTE: In Resend sandbox mode (using onboarding@resend.dev), emails can only be sent to the owner of the Resend account.
+    const adminEmail = process.env.ADMIN_EMAIL || 'ereny7796@gmail.com';
     await resend.emails.send({
       from: 'Portfolio <onboarding@resend.dev>',
-      to: ['ereny7796@gmail.com'],
+      to: [adminEmail],
       subject: 'New Contact Form Message',
       html: `
         <h2>New Message</h2>
@@ -57,6 +59,8 @@ export default async function handler(req, res) {
     });
 
     // 2️⃣ Auto-reply TO USER
+    // NOTE: If your Resend account is in sandbox mode, sending emails to external user addresses (to: [email]) 
+    // will fail unless you verify the recipient's domain or add them to your Resend testing contacts.
     await resend.emails.send({
       from: 'Satish <onboarding@resend.dev>',
       to: [email],
@@ -73,7 +77,7 @@ export default async function handler(req, res) {
     res.status(200).json({ success: true });
   } catch (error) {
     console.error('Resend API Error:', error);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Email failed',
       message: error.message || 'Unknown error occurred',
       details: process.env.NODE_ENV === 'development' ? error.stack : undefined
